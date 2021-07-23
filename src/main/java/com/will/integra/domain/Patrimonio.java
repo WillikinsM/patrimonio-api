@@ -35,7 +35,6 @@ public class Patrimonio implements Serializable {
 	public Patrimonio(String nome, String descricao, Integer numeroTombo) {
 		super();
 		this.nome = nome;
-		/// this.marcaId = marcaid;
 		this.descricao = descricao;
 		this.numeroTombo = numeroTombo;
 	}
@@ -48,13 +47,6 @@ public class Patrimonio implements Serializable {
 		this.nome = nome;
 	}
 
-	// public Integer getMarcaId() {
-	// return marcaId;
-	// }
-
-	// public void setMarcaid(Integer marcaid) {
-	// this.marcaId = marcaid;
-	// }
 
 	public String getDescricao() {
 		return descricao;

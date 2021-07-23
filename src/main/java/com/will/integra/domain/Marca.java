@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import javax.persistence.ForeignKey;
 @Entity
 public class Marca implements Serializable {
 
@@ -26,7 +26,7 @@ public class Marca implements Serializable {
 	
 	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "patrimonio_numeroTombo")
+	@JoinColumn(name = "patrimonio_numeroTombo",foreignKey = @ForeignKey(name = "FK_numeroTombo"))
 	private Patrimonio patrimonio;
 	
 	public Marca() {

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -43,9 +42,8 @@ public class MarcaResource {
 	}
 
 	@PostMapping
-	public ResponseEntity<Marca> create(@Valid @RequestBody Marca obj,
-			@RequestParam(value = "patrimonio", defaultValue = "0") Integer id_pat) {
-		Marca newObj = service.create(id_pat, obj);
+	public ResponseEntity<Marca> create(@Valid @RequestBody Marca obj) {
+		Marca newObj = service.create(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newObj.getMarcaId())
 				.toUri();
 		return ResponseEntity.created(uri).build();
