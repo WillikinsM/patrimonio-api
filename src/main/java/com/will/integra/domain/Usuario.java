@@ -1,8 +1,11 @@
 package com.will.integra.domain;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
@@ -11,9 +14,11 @@ public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	@NotEmpty
 	private String nome;
-	@NotEmpty
+	@NotEmpty 
 	private String email;
 	@NotEmpty
 	private String senha;
@@ -23,12 +28,26 @@ public class Usuario implements Serializable {
 
 	}
 
-	public Usuario(String nome, String email, String senha) {
+	
+	public Usuario(Integer id, @NotEmpty String nome, @NotEmpty String email, @NotEmpty String senha) {
 		super();
+		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
 	}
+	
+	
+	
+	public Integer getId() {
+		return id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 
 	public String getNome() {
 		return nome;
@@ -54,4 +73,23 @@ public class Usuario implements Serializable {
 		this.senha = senha;
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(email, id, nome, senha);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		return Objects.equals(email, other.email) && Objects.equals(id, other.id) && Objects.equals(nome, other.nome)
+				&& Objects.equals(senha, other.senha);
+	}
+
+	
 }

@@ -1,11 +1,14 @@
 package com.will.integra.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
@@ -15,22 +18,24 @@ public class Patrimonio implements Serializable {
 
 	@NotEmpty
 	private String nome;
-	@NotEmpty
-	private Integer marcaId;
-	
+
 	private String descricao;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer numeroTombo;
+
+	@OneToMany(mappedBy = "patrimonio")
+	private List<Marca> marcaId = new ArrayList<>();
 
 	public Patrimonio() {
 		super();
 	}
 
-	public Patrimonio(String nome, Integer marcaid, String descricao, Integer numeroTombo) {
+	public Patrimonio(String nome, String descricao, Integer numeroTombo) {
 		super();
 		this.nome = nome;
-		this.marcaId = marcaid;
+		/// this.marcaId = marcaid;
 		this.descricao = descricao;
 		this.numeroTombo = numeroTombo;
 	}
@@ -43,13 +48,13 @@ public class Patrimonio implements Serializable {
 		this.nome = nome;
 	}
 
-	public Integer getMarcaId() {
-		return marcaId;
-	}
+	// public Integer getMarcaId() {
+	// return marcaId;
+	// }
 
-	public void setMarcaid(Integer marcaid) {
-		this.marcaId = marcaid;
-	}
+	// public void setMarcaid(Integer marcaid) {
+	// this.marcaId = marcaid;
+	// }
 
 	public String getDescricao() {
 		return descricao;
@@ -65,6 +70,14 @@ public class Patrimonio implements Serializable {
 
 	public void setNumeroTombo(Integer numeroTombo) {
 		this.numeroTombo = numeroTombo;
+	}
+
+	public List<Marca> getMarcaId() {
+		return marcaId;
+	}
+
+	public void setMarcaId(List<Marca> marcaId) {
+		this.marcaId = marcaId;
 	}
 
 }
