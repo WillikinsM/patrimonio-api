@@ -34,6 +34,7 @@ Put -  Utilziado para atualizar  entidades já existentes,   Endpoints que conte
 Delete - Utilziado para deletar entidades,  Endpoints que contem /id
 
 ```
-
+Endpoints testados utilizando o Postman na versão 0.38.
+Foi utilizada a versão 13 do PostgreeSQL.
 
 
