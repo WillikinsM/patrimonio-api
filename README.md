@@ -7,7 +7,7 @@
 
 
 **Foram utilizadas as seguintes tecnologias nesta REST api:**
-### Java 11, PostgreSQL, SpringBoot 2 com as dependencias(H2 Database, Validation, Spring Data JPA ,H2 Database Spring Web)
+### Java 11, PostgreSQL, SpringBoot 2 com as dependencias(H2 Database, Validation, Spring Data JPA, Spring Web , Spring Dev Tools)
 
 
 ****Esta api foi desenvolvida em camadas sendo as principais: Camada de Dominio, Camada de Serviços, Camada de Recursos e Camada de Repositorio.****
